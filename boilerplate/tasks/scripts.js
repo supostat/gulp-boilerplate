@@ -16,7 +16,7 @@ import config, { getConfig } from '../config';
 import bundleLogger from '../utils/bundleLogger';
 import handleErrors from '../utils/handleErrors';
 import concatenateFiles from '../utils/concatenateFiles';
-
+import babelify from 'babelify';
 const envDev = config.args.env === 'dev';
 
 const b = browserify({
@@ -34,6 +34,9 @@ const bundle = (done) => {
   bundleLogger.start();
 
   return bundler
+    .transform(babelify.configure({
+      presets : ["es2015"]
+    }))
     .bundle()
     .on('error', handleErrors)
     .pipe(source('main.js'))

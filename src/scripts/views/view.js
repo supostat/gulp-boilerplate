@@ -1,1 +1,2 @@
-console.log('view loaded')
+
+export const a = '123';

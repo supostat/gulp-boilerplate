@@ -7,3 +7,23 @@
 @import 'fonts/_fonts';
 
 @import 'modules/**/*';
+@import "sprite";
+
+body {
+  background-color: red;
+}
+
+.ico {
+  @include sprite($-a-c)
+}
+
+.asda {
+  left: 50%;
+}
+
+
+.hhh {
+  left: 50%;
+  margin-left: -($-a-c-height/2);
+}
+
